@@ -29,7 +29,7 @@ notifications:
 before_install:
  - sudo id
  - if [[ "$DIST" == "trusty" ]]; then ./scripts/travis-before-install.sh "$DIST" ; fi
- - if [[ "$DIST" == "precise" ]]; then ./scripts/travis-before-install.sh "$DIST" ; fi
+ - if [[ "$DIST" == "precise" ]]; then sudo ./scripts/travis-before-install.sh "$DIST" ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; ./scripts/macosx-build-homebrew.sh ; fi
 
 branches:

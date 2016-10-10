@@ -2,6 +2,8 @@
 
 set -x
 
+id
+
 DIST="$1"
 
 #
