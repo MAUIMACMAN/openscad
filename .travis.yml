@@ -2,21 +2,21 @@ language: cpp
 
 matrix:
   include:
-    - os: linux
-      compiler: gcc
-      dist: trusty
-      env: DIST="trusty"
-      sudo: required
-      cache: apt
+#    - os: linux
+#      compiler: gcc
+#      dist: trusty
+#      env: DIST="trusty"
+#      sudo: required
+#      cache: apt
     - os: linux
       compiler: gcc
       dist: precise
       env: DIST="precise"
       sudo: required
       cache: apt
-    - os: osx
-      compiler: clang
-      env: DIST="osx"
+#    - os: osx
+#      compiler: clang
+#      env: DIST="osx"
 
 notifications:
   irc:

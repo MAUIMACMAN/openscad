@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 DIST="$1"
 
 #
@@ -11,7 +13,7 @@ WGET=${WGET:-wget}
 
 QUIET="-qq"
 
-echo "Running on:"
+echo "DIST = $DIST / Running on:"
 echo
 cat /etc/os-release
 echo
@@ -60,16 +62,16 @@ then
 elif [[ "$DIST" == "precise" ]]
 then
 
-	echo 'yes' | sudo add-apt-repository ppa:chrysn/openscad
+	echo 'yes' | "$SUDO" add-apt-repository ppa:chrysn/openscad
 	echo 'yes' | "$SUDO" add-apt-repository 'deb http://download.opensuse.org/repositories/home:/t-paul:/lib3mf/xUbuntu_12.04/ ./'
 	"$SUDO" apt-get update "$QUIET"
 	"$SUDO" apt-get install "$QUIET" $PACKAGES lib3mf-dev
 
-	echo 'yes' | sudo add-apt-repository ppa:mapnik/nightly-trunk
+	echo 'yes' | "$SUDO" add-apt-repository ppa:mapnik/nightly-trunk
 	"$SUDO" apt-get update "$QUIET"
 	"$SUDO" apt-get install "$QUIET" libharfbuzz-dev
 
-	echo 'yes' | sudo add-apt-repository ppa:oibaf/graphics-drivers
+	echo 'yes' | "$SUDO" add-apt-repository ppa:oibaf/graphics-drivers
 	"$SUDO" apt-get update "$QUIET"
 	"$SUDO" apt-get install "$QUIET" --install-recommends libgl1-mesa-dev-lts-quantal
 
