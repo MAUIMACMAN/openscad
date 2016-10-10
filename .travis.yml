@@ -2,21 +2,21 @@ language: cpp
 
 matrix:
   include:
-#    - os: linux
-#      compiler: gcc
-#      dist: trusty
-#      env: DIST="trusty"
-#      sudo: required
-#      cache: apt
+    - os: linux
+      compiler: gcc
+      dist: trusty
+      env: DIST="trusty"
+      sudo: required
+      cache: apt
     - os: linux
       compiler: gcc
       dist: precise
       env: DIST="precise"
       sudo: required
       cache: apt
-#    - os: osx
-#      compiler: clang
-#      env: DIST="osx"
+    - os: osx
+      compiler: clang
+      env: DIST="osx"
 
 notifications:
   irc:
@@ -28,7 +28,7 @@ notifications:
 
 before_install:
  - sudo id
- - if [[ "$DIST" == "trusty" ]]; then ./scripts/travis-before-install.sh "$DIST" ; fi
+ - if [[ "$DIST" == "trusty" ]]; then sudo ./scripts/travis-before-install.sh "$DIST" ; fi
  - if [[ "$DIST" == "precise" ]]; then sudo ./scripts/travis-before-install.sh "$DIST" ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; ./scripts/macosx-build-homebrew.sh ; fi
 
